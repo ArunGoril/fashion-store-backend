@@ -2,12 +2,22 @@ const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors")
-const productsRouters = require("./routes/product")
+
+const productsRouter = require("./routes/product")
+const usersRouter = require("./routes/user")
+const authRouter = require("./routes/auth")
+const cartRouter = require("./routes/cart")
+const ordersRouter = require("./routes/order")
 
 // middlewares
 server.use(cors({exposedHeaders: ['X-Total-Count']}))
 server.use(express.json())
-server.use("/products", productsRouters.router)
+
+server.use("/products", productsRouter.router)
+server.use("/users", usersRouter.router)
+server.use("/auth", authRouter.router)
+server.use("/cart", cartRouter.router)
+server.use("/orders", ordersRouter.router)
 
 const main = async () => {
   try {
