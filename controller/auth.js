@@ -10,7 +10,7 @@ exports.createUser = async (req, res) => {
     res.status(201).json({ _id: doc._id, email: doc.email, firstName: doc.firstName });
   } catch (err) {
     if (err.keyValue && err.keyValue.email) { // checking email related errors
-      res.status(401).json({ message: "email already exist" });
+      return res.status(401).json({ message: "email already exist" });
     }
     res.status(400).json(err);
   }

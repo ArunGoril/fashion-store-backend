@@ -24,7 +24,7 @@ server.use("/orders", ordersRouter.router);
 // connecting to mongoDB database
 const main = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/fashionStoreDB");
+    await mongoose.connect("mongodb://127.0.0.1:27017/fashionStoreDB2");
     console.log('database connected');
   } catch (error) {
     console.log(error);
