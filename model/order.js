@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
     cartItems: {type: [mongoose.Schema.Types.Mixed], required: true},
@@ -10,4 +10,4 @@ const orderSchema = new mongoose.Schema({
     selectedAddress: {type: mongoose.Schema.Types.Mixed, required: true}
 })
 
-exports.Order = mongoose.model('Order', orderSchema)
+exports.Order = mongoose.model('Order', orderSchema);

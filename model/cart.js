@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
     quantity: {type: String, required: true},
@@ -7,4 +7,4 @@ const cartSchema = new mongoose.Schema({
     
 })
 
-exports.Cart = mongoose.model('Cart', cartSchema)
+exports.Cart = mongoose.model('Cart', cartSchema);

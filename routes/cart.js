@@ -1,11 +1,11 @@
-const express = require('express')
-const { addToCart, fetchCartByUser, deleteFromCart, updateCart } = require('../controller/cart')
+const express = require('express');
+const { addToCart, fetchCartByUser, deleteFromCart, updateCart } = require('../controller/cart');
 
-const router = express.Router()
+const router = express.Router();
 
 router.post('/', addToCart)
     .get('/', fetchCartByUser)
     .delete('/:id', deleteFromCart)
     .patch('/:id', updateCart)
 
-exports.router = router
+exports.router = router;

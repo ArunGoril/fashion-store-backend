@@ -1,5 +1,6 @@
 const { Product } = require("../model/product");
 
+// add new product -- Admin
 exports.createProduct = async (req, res) => {
   const product = new Product(req.body);
   try {
@@ -10,20 +11,21 @@ exports.createProduct = async (req, res) => {
   }
 };
 
+// fetching products from the database
 exports.fetchAllProducts = async (req, res) => {
   let query = Product.find({});
   let totalProductsQuery = Product.find({});
 
-  if (req.query.category) {
+  if (req.query.category) { // fatching data based upon category
     query = query.find({ category: req.query.category });
     totalProductsQuery = totalProductsQuery.find({
       category: req.query.category,
     });
   }
-  if (req.query._sort && req.query._order) {
+  if (req.query._sort && req.query._order) { // sorting data
     query = query.sort({ [req.query._sort]: req.query._order });
   }
-  if (req.query._page && req.query._limit) {
+  if (req.query._page && req.query._limit) { // pagination
     const itemsPerPage = req.query._limit;
     const currentPage = req.query._page;
     query = query.skip(itemsPerPage * (currentPage - 1)).limit(itemsPerPage);
@@ -40,6 +42,7 @@ exports.fetchAllProducts = async (req, res) => {
   }
 };
 
+// fetchng single product
 exports.fetchProductById = async (req, res) => {
   const { id } = req.params;
 
@@ -51,6 +54,7 @@ exports.fetchProductById = async (req, res) => {
   }
 };
 
+// product update -- Admin
 exports.updateProduct = async (req, res) => {
   const { id } = req.params;
 
