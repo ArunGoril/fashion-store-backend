@@ -33,6 +33,7 @@ const main = async () => {
 
 main();
 
+// testing
 server.get("/", (req, res) => {
   res.json({ status: "success" });
 });
